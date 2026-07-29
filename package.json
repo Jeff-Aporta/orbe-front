@@ -1,0 +1,20 @@
+{
+  "name": "orbe-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Orbe — to-do colaborativo en tiempo real. Front estático (A+S del stack PAWS): React por CDN, esbuild a _dist",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "build": "node src/scripts/build.mjs",
+    "build:plain": "node src/scripts/build.mjs --no-minify",
+    "check": "npm run build && npm run typecheck"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.7.2"
+  }
+}

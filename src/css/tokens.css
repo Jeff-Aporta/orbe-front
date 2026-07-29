@@ -1,0 +1,28 @@
+/**
+ * tokens.css — la paleta de Orbe: fondos casi negros, acentos neón
+ * cyan/violet/magenta, radios y sombras glass.
+ */
+:root {
+  --ob-bg: #06070d;
+  --ob-bg-2: #0b0d17;
+  --ob-bg-3: #11142566;
+  --ob-line: #ffffff14;
+  --ob-line-2: #ffffff22;
+  --ob-text: #e8eaf2;
+  --ob-muted: #9aa0b8;
+  --ob-cyan: #22d3ee;
+  --ob-violet: #a78bfa;
+  --ob-magenta: #f472b6;
+  --ob-green: #34d399;
+  --ob-amber: #fbbf24;
+  --ob-red: #f87171;
+  --ob-brand: var(--ob-cyan);
+  --ob-radius: 14px;
+  --ob-shadow: 0 10px 30px #00000055;
+  --ob-font-display: 'Space Grotesk', system-ui, sans-serif;
+  --ob-font: 'Inter', system-ui, sans-serif;
+
+  /* Web Awesome sigue nuestra paleta */
+  --wa-color-brand-60: var(--ob-cyan);
+  --wa-font-sans: var(--ob-font);
+}

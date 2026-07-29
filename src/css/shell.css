@@ -1,0 +1,80 @@
+/**
+ * shell.css — el marco: fondo con auroras, barra superior, contenedor.
+ */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--ob-font);
+  color: var(--ob-text);
+  background:
+    radial-gradient(900px 500px at 85% -10%, #22d3ee14, transparent 60%),
+    radial-gradient(800px 480px at -10% 20%, #a78bfa12, transparent 60%),
+    radial-gradient(700px 500px at 50% 110%, #f472b60f, transparent 60%),
+    var(--ob-bg);
+}
+
+h1, h2, h3, h4 { font-family: var(--ob-font-display); }
+
+.ob-boot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 40vh;
+  color: var(--ob-cyan);
+}
+.ob-boot p { color: var(--ob-muted); margin: 0; }
+
+.ob-shell { min-height: 100vh; display: flex; flex-direction: column; }
+
+.ob-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 22px;
+  background: color-mix(in srgb, var(--ob-bg) 78%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--ob-line);
+}
+
+.ob-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--ob-font-display);
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.02em;
+  color: var(--ob-text);
+  text-decoration: none;
+}
+
+.ob-brand-orb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: conic-gradient(from 40deg, var(--ob-cyan), var(--ob-violet), var(--ob-magenta), var(--ob-cyan));
+  box-shadow: 0 0 14px #22d3ee88, 0 0 30px #a78bfa44;
+  animation: ob-spin 9s linear infinite;
+}
+.ob-brand-orb-lg { width: 34px; height: 34px; }
+@keyframes ob-spin { to { transform: rotate(360deg); } }
+
+.ob-topbar-user { display: flex; align-items: center; gap: 10px; }
+.ob-nick { color: var(--ob-muted); font-size: 14px; }
+
+.ob-main {
+  width: min(1400px, 100%);
+  margin: 0 auto;
+  padding: 26px 22px 60px;
+  flex: 1;
+}
+
+.ob-muted { color: var(--ob-muted); }
+.ob-hint { font-size: 12.5px; margin: 2px 0 0; }

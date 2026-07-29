@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" class="wa-dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orbe · to-do colaborativo en tiempo real</title>
+  <meta name="theme-color" content="#06070d" />
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  <link rel="preconnect" href="https://esm.sh" crossorigin />
+  <link rel="preconnect" href="https://code.iconify.design" crossorigin />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- tipografías del kit: Space Grotesk (titulares) + Inter (texto) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3/dist/styles/webawesome.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link id="css-dist" rel="stylesheet" href="_dist/css/app.css" />
+  <script>
+    document.getElementById('css-dist').addEventListener('error', function () {
+      var l = document.createElement('link');
+      l.rel = 'stylesheet';
+      l.href = 'src/css/app.css';
+      document.head.appendChild(l);
+    });
+  </script>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.3.1",
+      "react-dom": "https://esm.sh/react-dom@18.3.1",
+      "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react",
+      "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime"
+    }
+  }
+  </script>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3/dist-cdn/webawesome.loader.js"></script>
+  <script defer src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+</head>
+<body>
+  <div id="root">
+    <div class="ob-boot" role="status" aria-busy="true">
+      <iconify-icon icon="svg-spinners:ring-resize" width="34" height="34"></iconify-icon>
+      <p>Abriendo el orbe…</p>
+    </div>
+  </div>
+
+  <script type="module">
+    try {
+      await import('./_dist/js/main.js');
+    } catch (e) {
+      document.getElementById('root').innerHTML =
+        '<div class="ob-boot"><strong>Falta construir _dist</strong>' +
+        '<p>Corre <code>npm run build</code> en <code>app/</code> y recarga.</p></div>';
+      console.error(e);
+    }
+  </script>
+</body>
+</html>
