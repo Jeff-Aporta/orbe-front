@@ -164,7 +164,7 @@ export function TaskDialog({
 
         <wa-textarea ref={notesRef} label="Notas" rows={3} value={task.notes} disabled={!canEdit}></wa-textarea>
         {canEdit && (
-          <wa-button size="small" appearance="outlined" onClick={saveBasics} disabled={busy}>
+          <wa-button size="s" appearance="outlined" onClick={saveBasics} disabled={busy}>
             <iconify-icon icon="mdi:content-save" slot="start"></iconify-icon> Guardar notas y fecha
           </wa-button>
         )}
@@ -190,7 +190,7 @@ export function TaskDialog({
                 <i key={c} className={c === newTagColor ? 'active' : ''} style={{ background: c }} onClick={() => setNewTagColor(c)}></i>
               ))}
               <wa-button
-                size="small"
+                size="s"
                 appearance="plain"
                 onClick={() =>
                   run(async () => {
@@ -232,8 +232,8 @@ export function TaskDialog({
         </ul>
         {canEdit && (
           <div className="ob-inline">
-            <wa-input ref={subRef} placeholder="Añadir paso…" size="small"></wa-input>
-            <wa-button size="small" appearance="outlined" disabled={busy} onClick={() => {
+            <wa-input ref={subRef} placeholder="Añadir paso…" size="s"></wa-input>
+            <wa-button size="s" appearance="outlined" disabled={busy} onClick={() => {
               const t = elVal(subRef);
               if (t) run(() => addSubtask(spaceId, task.id, t));
             }}>
@@ -280,8 +280,8 @@ export function TaskDialog({
         </ul>
         {canEdit && (
           <div className="ob-inline">
-            <wa-input ref={commentRef} placeholder="Escribe un comentario…" size="small"></wa-input>
-            <wa-button size="small" appearance="outlined" disabled={busy} onClick={() => {
+            <wa-input ref={commentRef} placeholder="Escribe un comentario…" size="s"></wa-input>
+            <wa-button size="s" appearance="outlined" disabled={busy} onClick={() => {
               const t = elVal(commentRef);
               if (t) run(() => addComment(spaceId, task.id, t));
             }}>
@@ -293,7 +293,7 @@ export function TaskDialog({
         <div className="ob-td-actions">
           {canEdit && (
             <wa-button
-              size="small"
+              size="s"
               variant="danger"
               appearance="outlined"
               disabled={busy}
@@ -309,7 +309,7 @@ export function TaskDialog({
               <iconify-icon icon="mdi:delete-outline" slot="start"></iconify-icon> Eliminar
             </wa-button>
           )}
-          <wa-button size="small" appearance="outlined" onClick={close}>Cerrar</wa-button>
+          <wa-button size="s" appearance="outlined" onClick={close}>Cerrar</wa-button>
         </div>
       </div>
     </wa-dialog>

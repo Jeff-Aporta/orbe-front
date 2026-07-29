@@ -242,16 +242,16 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
         <div className="ob-pagehead-actions">
           {isAdmin && (
             <>
-              <wa-button appearance="outlined" size="small" onClick={() => openDialog('dlg-miembros')}>
+              <wa-button appearance="outlined" size="s" onClick={() => openDialog('dlg-miembros')}>
                 <iconify-icon icon="mdi:account-multiple" slot="start"></iconify-icon> Miembros
               </wa-button>
-              <wa-button appearance="outlined" size="small" onClick={() => openDialog('dlg-ajustes')}>
+              <wa-button appearance="outlined" size="s" onClick={() => openDialog('dlg-ajustes')}>
                 <iconify-icon icon="mdi:cog" slot="start"></iconify-icon> Ajustes
               </wa-button>
             </>
           )}
           {!isAdmin && (
-            <wa-button appearance="outlined" size="small" onClick={() => openDialog('dlg-miembros')}>
+            <wa-button appearance="outlined" size="s" onClick={() => openDialog('dlg-miembros')}>
               <iconify-icon icon="mdi:account-multiple" slot="start"></iconify-icon> Miembros
             </wa-button>
           )}
@@ -264,8 +264,8 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
       <div className="ob-toolbar">
         {canCreate ? (
           <form onSubmit={nuevaTarea} className="ob-newtask">
-            <wa-input ref={newTaskRef} placeholder="Nueva tarea… (Enter para crear)" size="small"></wa-input>
-            <wa-button variant="brand" size="small" type="submit">
+            <wa-input ref={newTaskRef} placeholder="Nueva tarea… (Enter para crear)" size="s"></wa-input>
+            <wa-button variant="brand" size="s" type="submit">
               <iconify-icon icon="mdi:plus"></iconify-icon>
             </wa-button>
           </form>
@@ -278,7 +278,7 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
         <div className="ob-filters">
           <wa-input
             placeholder="Buscar…"
-            size="small"
+            size="s"
             value={q}
             onInput={(e: React.FormEvent) => setQ((e.target as unknown as { value: string }).value)}
           >
@@ -295,7 +295,7 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
 
           <wa-select
             placeholder="Prioridad"
-            size="small"
+            size="s"
             value={fPri ?? ''}
             onChange={(e: React.FormEvent) => setFPri((e.target as unknown as { value: string }).value || null)}
           >
@@ -308,7 +308,7 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
 
           <wa-select
             placeholder="Asignado"
-            size="small"
+            size="s"
             value={fAssignee ? String(fAssignee) : ''}
             onChange={(e: React.FormEvent) => setFAssignee(Number((e.target as unknown as { value: string }).value) || null)}
           >
@@ -424,7 +424,7 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
               {canManageMembers && m.id !== space.owner_id ? (
                 <>
                   <wa-select
-                    size="small"
+                    size="s"
                     value={m.role}
                     onChange={(e: React.FormEvent) =>
                       setMemberRole(spaceId, m.id, (e.target as unknown as { value: string }).value).then(loadMeta)
@@ -434,7 +434,7 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
                     <wa-option value="editor">editor</wa-option>
                     <wa-option value="reader">lector</wa-option>
                   </wa-select>
-                  <wa-button size="small" appearance="plain" onClick={() => removeMember(spaceId, m.id).then(loadMeta)}>
+                  <wa-button size="s" appearance="plain" onClick={() => removeMember(spaceId, m.id).then(loadMeta)}>
                     <iconify-icon icon="mdi:account-remove"></iconify-icon>
                   </wa-button>
                 </>
@@ -442,7 +442,7 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
                 <span className={`ob-role ob-role-${m.role}`}>{m.role}</span>
               )}
               {m.id === user.id && m.id !== space.owner_id && (
-                <wa-button size="small" appearance="plain" title="Salir del space" onClick={() => removeMember(spaceId, m.id).then(() => navigate({ v: 'spaces' }))}>
+                <wa-button size="s" appearance="plain" title="Salir del space" onClick={() => removeMember(spaceId, m.id).then(() => navigate({ v: 'spaces' }))}>
                   <iconify-icon icon="mdi:exit-to-app"></iconify-icon>
                 </wa-button>
               )}
@@ -451,8 +451,8 @@ export function SpaceView({ spaceId, user }: { spaceId: number; user: User }) {
         </ul>
         {canInvite && (
           <form onSubmit={invitar} className="ob-inline">
-            <wa-input ref={memberNickRef} placeholder="Invitar por nick (entra como editor)…" size="small"></wa-input>
-            <wa-button variant="brand" size="small" type="submit">
+            <wa-input ref={memberNickRef} placeholder="Invitar por nick (entra como editor)…" size="s"></wa-input>
+            <wa-button variant="brand" size="s" type="submit">
               <iconify-icon icon="mdi:account-plus"></iconify-icon>
             </wa-button>
           </form>

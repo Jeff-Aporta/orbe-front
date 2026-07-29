@@ -95,6 +95,8 @@
 }
 .ob-space-card {
   --sc: var(--ob-cyan);
+  height: auto; /* Chromium colapsa la fila del grid a ~43px sin esto (quirk de <button>) */
+  align-items: stretch; /* UA de <button> centra los hijos; el card los quiere a ancho completo */
   text-align: left;
   font: inherit;
   color: inherit;
@@ -223,7 +225,7 @@
 }
 .ob-filters { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .ob-filters wa-input { width: 200px; }
-.ob-filters wa-select { width: 170px; }
+.ob-filters wa-select { width: auto; min-width: 195px; flex: none; }
 
 /* ---------- chips de etiqueta ---------- */
 .ob-task-tags { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
@@ -380,9 +382,11 @@
 .ob-inline wa-input { flex: 1; }
 
 /* ---------- diálogo de tarea ---------- */
-.ob-td { display: flex; flex-direction: column; gap: 12px; min-width: min(560px, 86vw); }
+.ob-td { display: flex; flex-direction: column; gap: 12px; min-width: min(560px, 86vw); max-width: 86vw; }
 .ob-td-row { display: flex; gap: 18px; flex-wrap: wrap; justify-content: space-between; }
-.ob-memberpick { display: flex; gap: 6px; }
+.ob-td-row > * { min-width: 0; max-width: 100%; }
+.ob-td-row wa-input { flex: 1 1 200px; }
+.ob-memberpick { display: flex; gap: 6px; flex-wrap: wrap; max-width: 100%; }
 .ob-memberpick button {
   width: 30px;
   height: 30px;

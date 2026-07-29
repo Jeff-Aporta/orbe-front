@@ -81,7 +81,7 @@ export function App() {
         <div className="ob-topbar-user">
           <wa-avatar initials={user.nick.slice(0, 2).toUpperCase()} label={user.nick}></wa-avatar>
           <span className="ob-nick">@{user.nick}</span>
-          <wa-button size="small" appearance="plain" onClick={logout} title="Cerrar sesión">
+          <wa-button size="s" appearance="plain" onClick={logout} title="Cerrar sesión">
             <iconify-icon icon="mdi:logout"></iconify-icon>
           </wa-button>
         </div>

@@ -15,11 +15,16 @@ export const PRIORITY_META: Record<string, { label: string; icon: string; cls: s
 
 export function dueMeta(due: string | null): { label: string; cls: string } | null {
   if (!due) return null;
+  // El API serializa DATE como ISO ("2026-08-05T00:00:00.000Z"); nos quedamos
+  // con la parte de fecha y la interpretamos como día local, no UTC.
+  const iso = /^\d{4}-\d{2}-\d{2}/.exec(due)?.[0];
+  if (!iso) return null;
+  const d = new Date(iso + 'T00:00:00');
+  if (Number.isNaN(d.getTime())) return null;
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  const d = new Date(due + 'T00:00:00');
   const diff = Math.round((d.getTime() - today.getTime()) / 86400000);
-  const label = d.toLocaleDateString('es', { day: 'numeric', month: 'short' });
+  const label = d.toLocaleDateString('es', { day: 'numeric', month: 'short' }).replace('.', '');
   if (diff < 0) return { label: `${label} · vencida`, cls: 'ob-due-late' };
   if (diff === 0) return { label: 'hoy', cls: 'ob-due-today' };
   if (diff <= 2) return { label, cls: 'ob-due-soon' };
