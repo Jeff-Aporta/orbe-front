@@ -1,13 +1,13 @@
 {
-  "builtAt": "2026-07-29T07:26:00.567Z",
+  "builtAt": "2026-07-29T07:40:39.239Z",
   "minify": true,
   "entry": [
     "src/css/app.css",
     "src/js/main.tsx"
   ],
-  "bytesIn": 79035,
-  "bytesOut": 46097,
-  "hash": "7276e6ecf6c4",
+  "bytesIn": 79457,
+  "bytesOut": 46218,
+  "hash": "a0cb803a6ce4",
   "outputs": [
     "_dist/css/app.css",
     "_dist/js/main.js"
